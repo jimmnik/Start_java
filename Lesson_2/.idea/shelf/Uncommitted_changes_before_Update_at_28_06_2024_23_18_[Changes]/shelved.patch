@@ -1,0 +1,270 @@
+Index: Jaeger.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Jaeger{\r\n\r\n\tprivate String modelName = \"Bracer Phoenix\";\r\n\tprivate String mark = \"Mark-5\";\r\n\tprivate String origin = \"USN\";\r\n\tprivate float height = 70.7f;\r\n\tprivate float weight = 2.1f;\r\n\tprivate int speed = 3;\r\n\tprivate int strength = 8;\r\n\tprivate int armor = 9;\r\n\r\n\tpublic String getModelName(){\r\n\t\treturn modelName;\r\n\t}\r\n\r\n\tpublic void setModelName(String modelName){\r\n\t\tif(modelName == \"\"){\r\n\t\t\tSystem.out.println(\"Пустая страка недопустима\");\r\n\t\t}else{\r\n\t\t\tthis.modelName = modelName;\r\n\t\t}\r\n\t}\r\n\r\n\tpublic boolean drift() {\r\n\t\tSystem.out.println(\"Вы вошли в дрифт\");\r\n\t\treturn true;\r\n\t}\r\n\r\n\tpublic void move() {\r\n\t\tSystem.out.println(\"Вы прошли 5 шагов\");\r\n\t}\r\n\r\n\tpublic String scanKaiju() {\r\n\t\treturn \"nothing\";\r\n\t}\r\n\r\n\tpublic void useVortexCannon() {\r\n\r\n\t}\r\n}
+===================================================================
+diff --git a/Jaeger.java b/Jaeger.java
+--- a/Jaeger.java	
++++ b/Jaeger.java	
+@@ -1,29 +1,67 @@
+ public class Jaeger{
+ 
+-	private String modelName = "Bracer Phoenix";
+-	private String mark = "Mark-5";
+-	private String origin = "USN";
+-	private float height = 70.7f;
+-	private float weight = 2.1f;
+-	private int speed = 3;
+-	private int strength = 8;
+-	private int armor = 9;
++	private String modelName;
++	private String mark;
++	private String origin;
++	private float height;
++	private float weight;
++
++	public Jaeger(){
++		
++	}
++
++	public Jaeger(String modelName, String mark, String origin, float height, float weight) {
++		this.modelName = modelName;
++		this.mark = mark;
++		this.origin = origin;
++		this.height = height;
++		this.weight = weight;
++	}
++
+ 
+-	public String getModelName(){
+-		return modelName;
+-	}
++	public String getModelName() {
++        return modelName;
++    }
+ 
+-	public void setModelName(String modelName){
+-		if(modelName == ""){
+-			System.out.println("Пустая страка недопустима");
+-		}else{
+-			this.modelName = modelName;
+-		}
+-	}
++    public void setModelName(String modelName) {
++        this.modelName = modelName;
++    }
++
++    public String getMark() {
++        return mark;
++    }
++
++    public void setMark(String mark) {
++        this.mark = mark;
++    }
++
++    public String getOrigin() {
++        return origin;
++    }
++
++    public void setOrigin(String origin) {
++        this.origin = origin;
++    }
++
++    public float getHeight() {
++        return height;
++    }
++
++    public void setHeight(float height) {
++        this.height = height;
++    }
++
++    public float getWeight() {
++        return weight;
++    }
++
++    public void setWeight(float weight) {
++        this.weight = weight;
++    }
+ 
+ 	public boolean drift() {
+-		System.out.println("Вы вошли в дрифт");
+-		return true;
++	 	System.out.println("Вы вошли в дрифт");
++	 	return true;
+ 	}
+ 
+ 	public void move() {
+@@ -34,7 +72,16 @@
+ 		return "nothing";
+ 	}
+ 
+-	public void useVortexCannon() {
++	public void useWeapon() {
++		System.out.println("FIRE!!!!");
++	}
+ 
+-	}
++	public String toString() {
++        return  "modelName='" + modelName + '\'' +
++                ", mark='" + mark + '\'' +
++                ", origin='" + origin + '\'' +
++                ", height=" + height +
++                ", weight=" + weight +
++                '}';
++    }
+ }
+\ No newline at end of file
+Index: ../Lesson_1/HW_lesson_1/Calculator.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Calculator{\r\n\r\n\tpublic static void main(String[] args) {\r\n\t\r\n\tint one = 7;\r\n\tint two = 2;\r\n\tString sing = \"%\";\r\n\r\n\tswitch(sing){\r\n\tcase \"+\":\r\n\t\tint result = one + two;\r\n\t\tSystem.out.println(one + sing + two + \"=\" + result);\r\n\t\tbreak;\r\n\tcase \"-\": \r\n\t\tint result2 = one - two;\r\n\t\tSystem.out.println(one + sing + two + \"=\" + result2);\r\n\t\tbreak;\r\n\tcase \"*\": \r\n\t\tint result3 = one * two;\r\n\t\tSystem.out.println(one + sing + two + \"=\" + result3);\r\n\t\tbreak;\r\n\tcase \"/\": \r\n\t\tint result4 = one / two;\r\n\t\tSystem.out.println(one + sing + two + \"=\" + result4);\r\n\t\tbreak;\r\n\tcase \"^\": \r\n\t\tint result5 = one;\r\n\t\tfor (int i = 1; i<two; i++) {\r\n\t\t\tresult5 = result5 * one;\r\n\t\t}\r\n\t\tSystem.out.println(one + sing + two + \"=\" + result5);\r\n\t\tbreak;\r\n\tcase \"%\": \r\n\t\tint result6 = one % two;\r\n\t\tSystem.out.println(one + sing + two + \"=\" + result6);\r\n\t\tbreak;\r\n\t}\r\n\r\n// \tpublic void plus(int onee, int twoo){\r\n// int result = one1 + two2;\r\n// System.out.println(onee + \" + \" + twoo + \" = \" + result);\r\n// \t}\r\n\t}\r\n}
+===================================================================
+diff --git a/../Lesson_1/HW_lesson_1/Calculator.java b/../Lesson_1/HW_lesson_1/Calculator.java
+--- a/../Lesson_1/HW_lesson_1/Calculator.java	
++++ b/../Lesson_1/HW_lesson_1/Calculator.java	
+@@ -1,44 +1,58 @@
+ public class Calculator{
+ 
+-	public static void main(String[] args) {
+-	
+-	int one = 7;
+-	int two = 2;
+-	String sing = "%";
++	private int firstNumber;
++	private int secontNumber;
++	private char mathOperation;
++
++	public void setFirstNumber(int firstNumber){
++		this.firstNumber = firstNumber;
++	}
+ 
+-	switch(sing){
+-	case "+":
+-		int result = one + two;
+-		System.out.println(one + sing + two + "=" + result);
++	public void setSecontNumber(int secontNumber){
++		this.secontNumber = secontNumber;
++	}
++
++	public void setMathOperation(char mathOperation){
++		this.mathOperation = mathOperation;
++	}
++
++	private void pow(){
++		int result5 = firstNumber;
++		for (int i = 1; i<secontNumber; i++) {
++			result5 = result5 * firstNumber;
++		}
++		System.out.println(firstNumber + "" + mathOperation + "" + secontNumber + "=" + result5);
++	}
++
++
++	public void calculete(){
++		switch(mathOperation){
++	case '+':
++		int result = firstNumber + secontNumber;
++		System.out.println(firstNumber + "" + mathOperation + "" + secontNumber + "=" + result);
+ 		break;
+-	case "-": 
+-		int result2 = one - two;
+-		System.out.println(one + sing + two + "=" + result2);
++	case '-': 
++		int result2 = firstNumber - secontNumber;
++		System.out.println(firstNumber + "" + mathOperation + "" + secontNumber + "=" + result2);
+ 		break;
+-	case "*": 
+-		int result3 = one * two;
+-		System.out.println(one + sing + two + "=" + result3);
++	case '*': 
++		int result3 = firstNumber * secontNumber;
++		System.out.println(firstNumber + "" + mathOperation + "" + secontNumber + "=" + result3);
+ 		break;
+-	case "/": 
+-		int result4 = one / two;
+-		System.out.println(one + sing + two + "=" + result4);
++	case '/': 
++		int result4 = firstNumber / secontNumber;
++		System.out.println(firstNumber + "" + mathOperation + "" + secontNumber + "=" + result4);
+ 		break;
+-	case "^": 
+-		int result5 = one;
+-		for (int i = 1; i<two; i++) {
+-			result5 = result5 * one;
+-		}
+-		System.out.println(one + sing + two + "=" + result5);
++	case '^': 
++		pow();
+ 		break;
+-	case "%": 
+-		int result6 = one % two;
+-		System.out.println(one + sing + two + "=" + result6);
++	case '%': 
++		int result6 = firstNumber % secontNumber;
++		System.out.println(firstNumber + "" + mathOperation + "" + secontNumber + "=" + result6);
+ 		break;
+-	}
+-
+-// 	public void plus(int onee, int twoo){
+-// int result = one1 + two2;
+-// System.out.println(onee + " + " + twoo + " = " + result);
+-// 	}
++	default:
++		System.out.println("Ошибка");
++		}
+ 	}
++
+ }
+\ No newline at end of file
+Index: JaegerTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class JaegerTest {\r\n\r\n\tpublic static void main(String[] args) {\r\n\t\tJaeger jagerOne;\r\n\t\tjagerOne = new Jaeger();\r\n\r\n\t\tSystem.out.println(\"modelName = \" + jagerOne.getModelName());\r\n\t\t jagerOne.setModelName(\"\");\r\n\t\t System.out.println(\"modelName = \" + jagerOne.getModelName());\r\n\r\n\t\t// System.out.println(\"mark = \" + jagerOne.height);\r\n\t\t// jagerOne.height = -1;\r\n\t\t// System.out.println(\"mark = \" + jagerOne.height);\r\n\r\n\t\t// System.out.println(\"speed = \" + jagerOne.mark);\r\n\t\t// System.out.println(\"speed = \" + jagerOne.speed);\r\n\t\t// System.out.println(jagerOne.drift());\r\n\t}\r\n}
+===================================================================
+diff --git a/JaegerTest.java b/JaegerTest.java
+--- a/JaegerTest.java	
++++ b/JaegerTest.java	
+@@ -1,19 +1,32 @@
+ public class JaegerTest {
+ 
+ 	public static void main(String[] args) {
+-		Jaeger jagerOne;
+-		jagerOne = new Jaeger();
++		Jaeger brodyaga = new Jaeger("Бродяга", "Серия 3", "США", 87.54f, 1980f);
++
++		// brodyaga.setModelName("Бродяга");
++		// brodyaga.setMark("Серия 3");
++		// brodyaga.setOrigin("США");
++		// brodyaga.setHeight(87.54f);
++		// brodyaga.setWeight(1980f);
+ 
+-		System.out.println("modelName = " + jagerOne.getModelName());
+-		 jagerOne.setModelName("");
+-		 System.out.println("modelName = " + jagerOne.getModelName());
++		Jaeger jager = new Jaeger("Егерь", "Серия 7", "США", 85.33f, 7500f);
+ 
+-		// System.out.println("mark = " + jagerOne.height);
+-		// jagerOne.height = -1;
+-		// System.out.println("mark = " + jagerOne.height);
++		Jaeger jagerError = new Jaeger();
+ 
+-		// System.out.println("speed = " + jagerOne.mark);
+-		// System.out.println("speed = " + jagerOne.speed);
+-		// System.out.println(jagerOne.drift());
++		// jager.setModelName("Егерь");
++		// jager.setMark("Серия 7");
++		// jager.setOrigin("США");
++		// jager.setHeight(85.33f);
++		// jager.setWeight(7500f);
++
++		System.out.println(brodyaga);
++		System.out.println(jager);
++
++		jager.drift();
++		System.out.println(brodyaga.scanKaiju());
++		jager.useWeapon();
++		jagerError.move();
++
++
+ 	}
+ }
+\ No newline at end of file
